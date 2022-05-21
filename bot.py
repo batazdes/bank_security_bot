@@ -34,6 +34,12 @@ async def start_choosing (message: types.Message):
 
 @dp.message_handler(state=Bank_security.waiting_for_choosing_1)
 async def category_1_choosed (message: types.Message):
+    if message.text.lower() == '/start':
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        for category in available_categories:
+            keyboard.add(category)
+        await message.answer('О какой тайне вы бы хотели узнать?', reply_markup=keyboard)
+        await Bank_security.waiting_for_choosing_1.set()
     if message.text.lower() not in available_categories:
         await message.answer("Пожалуйста, выберете тайну с помощью клавиатуры")
         return
@@ -45,6 +51,12 @@ async def category_1_choosed (message: types.Message):
 
 @dp.message_handler(state=Bank_security.waiting_for_choosing_2)
 async def category_2_choosed (message: types.Message):
+    if message.text.lower() == '/start':
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        for category in available_categories:
+            keyboard.add(category)
+        await message.answer('О какой тайне вы бы хотели узнать?', reply_markup=keyboard)
+        await Bank_security.waiting_for_choosing_1.set()
     if message.text.lower() not in available_variants:
         await message.answer("Пожалуйста, выберете категорию с помощью клавиатуры")
         return
@@ -72,6 +84,12 @@ async def category_2_choosed (message: types.Message):
 
 @dp.message_handler(state=Bank_security.waiting_for_choosing_3)
 async def category_3_choosed (message: types.Message):
+    if message.text.lower() == '/start':
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        for category in available_categories:
+            keyboard.add(category)
+        await message.answer('О какой тайне вы бы хотели узнать?', reply_markup=keyboard)
+        await Bank_security.waiting_for_choosing_1.set()
     if message.text.lower() not in available_variants_safety:
         await message.answer("Пожалуйста, выберете категорию с помощью клавиатуры")
         return
@@ -128,6 +146,12 @@ async def category_3_choosed (message: types.Message):
 
 @dp.message_handler(state=Bank_security.waiting_for_choosing_4)
 async def category_4_choosed (message: types.Message):
+    if message.text.lower() == '/start':
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        for category in available_categories:
+            keyboard.add(category)
+        await message.answer('О какой тайне вы бы хотели узнать?', reply_markup=keyboard)
+        await Bank_security.waiting_for_choosing_1.set()
     if message.text.lower() not in available_variants_control:
         await message.answer("Пожалуйста, выберете категорию с помощью клавиатуры")
         return
