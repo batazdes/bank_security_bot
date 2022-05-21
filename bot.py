@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 from aiogram import Bot, Dispatcher,executor,types
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.utils.markdown import hlink
@@ -6,8 +8,12 @@ from answers import ans2,ans3_1,ans3_3_1,ans3_3_2,ans3_3_3,ans3_3_4,ans4_1,ans4_
     ans3_3_6,ans3_3_7,ans3_3_8,ans3_3_9,ans3_3_10,ans3_3_11,ans3_3_12, ans5
 from link import link4_1,link4_4,link3_3_1,link3_3_2,link4_3_1,link4_2,link3_3_3,link3_3_4,link4_3_2, \
     link2,link3_3_5,link3_3_6,link3_3_7,link3_3_8,link3_3_9,link3_3_10,link3_3_11,link3_3_12,link_site
+import os 
 
-token = open('token.txt').read()
+PATH = os.path.split(os.path.abspath(__file__))[0]
+token_file = PATH + '/token.txt'
+
+token = open(token_file).read().strip('\n\t ')
 bot=Bot(token=token,parse_mode=types.ParseMode.HTML)
 dp=Dispatcher(bot, storage=MemoryStorage())
 
